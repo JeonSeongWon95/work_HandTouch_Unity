@@ -88,15 +88,16 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("재생하려는 SoundType이 Max값 이상입니다. 확인해주세요.");
             return;
         }
-        if (audioClips.Length < (int)eSoundType) 
+        if (audioClips.Length <= (int)eSoundType) 
         {
             Debug.LogWarning("재생하려는 AudioClip이 없습니다. AudioManager에 추가해주세요.");
+            return;
         }
 
         AudioSource audio = FindNonPlayingSource();
 
         if (audio != null)
-        {
+        {           
             audio.clip = audioClips[(int)eSoundType];
             audio.Play();
         }

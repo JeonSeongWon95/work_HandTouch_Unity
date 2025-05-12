@@ -62,7 +62,6 @@ public class CarSpawner : MonoBehaviour
 
             if (SpawnTimer > SpawnTime)
             {
-                Debug.Log("SpawnTimer Is End");
                 SpawnTimer = 0.0f;
                 SpawnCar();
             }
@@ -75,8 +74,6 @@ public class CarSpawner : MonoBehaviour
         {
             isStart = false;
         }
-
-        Debug.Log("Start Spawn");
         GameObject gameObject = Instantiate(CarPrefabs[(int)Type], transform);
 
         if (Type == CarType.Red)
@@ -107,7 +104,6 @@ public class CarSpawner : MonoBehaviour
 
     void InitCarPath(GameObject PathParent) 
     {
-        Debug.Log("Init Car Path");
         CarPath = PathParent.GetComponentsInChildren<RectTransform>();
         currentIndex = CarPath.Length;
     }
